@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             (data, response, error) in
             // check for any errors
             guard error == nil else {
-                print("error calling GET on /todos/1")
+                print("error calling GET on e2delivery.com")
                 print(error!)
                 return
             }
@@ -64,9 +64,14 @@ class ViewController: UIViewController {
                 }
                 // now we have the todo
                 // let's just print it to prove we can access it
-                self.predictedTextField.text = """
-                \(String(describing: todo["prediction"]))
-                """
+                DispatchQueue.main.sync(){
+                    let outputStr = """
+                    \(todo["prediction"] ?? "0.00000000")
+                    """
+                    let index = outputStr.index(outputStr.startIndex, offsetBy: 5)
+                    self.predictedTextField.text = outputStr.substring(to: index)
+                }
+                
             } catch  {
                 print("error trying to convert data to JSON")
                 return
