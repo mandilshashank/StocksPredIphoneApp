@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var selectedDatePicker: UIDatePicker!
     @IBOutlet weak var predictButton: UIButton!
     @IBOutlet weak var predictedTextField: UITextField!
+    @IBOutlet weak var oneYearTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
